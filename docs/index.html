@@ -2,203 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COLA: Collaborative Learning Architecture</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background: #f8f9fa;
-        }
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-            border-bottom: 2px solid #e9ecef;
-            padding-bottom: 30px;
-        }
-        .title {
-            font-size: 2.5em;
-            color: #2c3e50;
-            margin-bottom: 15px;
-        }
-        .authors {
-            font-size: 1.2em;
-            color: #7f8c8d;
-            margin-bottom: 10px;
-        }
-        .conference {
-            font-size: 1.1em;
-            color: #3498db;
-            font-weight: 500;
-        }
-        .links {
-            text-align: center;
-            margin: 30px 0;
-        }
-        .btn {
-            display: inline-block;
-            margin: 5px 10px;
-            padding: 12px 24px;
-            background: #3498db;
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            transition: background 0.3s;
-            font-weight: 500;
-        }
-        .btn:hover {
-            background: #2980b9;
-        }
-        .btn.github {
-            background: #333;
-        }
-        .btn.github:hover {
-            background: #555;
-        }
-        .section {
-            margin: 40px 0;
-        }
-        .section h2 {
-            color: #2c3e50;
-            border-left: 4px solid #e74c3c;
-            padding-left: 15px;
-            margin-bottom: 20px;
-        }
-        .status {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 5px;
-            padding: 15px;
-            margin: 20px 0;
-            text-align: center;
-        }
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-        .feature-card {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #e74c3c;
-        }
-        .feature-card h3 {
-            color: #2c3e50;
-            margin-top: 0;
-        }
-    </style>
+    <title>COLA Project</title>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1 class="title">🥤 COLA</h1>
-            <p style="font-size: 1.3em; color: #e74c3c; margin: 10px 0;">Collaborative Learning Architecture</p>
-            <p class="authors">Yushi Du</p>
-            <p class="conference">Research Project • 2024</p>
-        </div>
-        
-        <div class="links">
-            <a href="#" class="btn">📄 Paper (Coming Soon)</a>
-            <a href="https://github.com/Yushi-Du/COLA" class="btn github">💻 Code</a>
-            <a href="#demo" class="btn">🎥 Demo</a>
-            <a href="#citation" class="btn">📝 Citation</a>
-        </div>
-
-        <div class="status">
-            <strong>🚧 Project Under Development</strong><br>
-            Code and documentation are being prepared for public release. Stay tuned!
-        </div>
-        
-        <div class="section">
-            <h2>About COLA</h2>
-            <p>
-                COLA (Collaborative Learning Architecture) is a cutting-edge framework for 
-                multi-agent collaborative learning and manipulation. Our approach combines 
-                advanced machine learning techniques with real-time coordination strategies 
-                to enable robust collaborative behaviors in complex environments.
-            </p>
-        </div>
-        
-        <div class="section">
-            <h2>Key Features</h2>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h3>🤖 Multi-Agent Learning</h3>
-                    <p>Distributed learning algorithms for coordinated agent behavior</p>
-                </div>
-                <div class="feature-card">
-                    <h3>🧠 Adaptive Collaboration</h3>
-                    <p>Dynamic task allocation and real-time strategy adaptation</p>
-                </div>
-                <div class="feature-card">
-                    <h3>⚡ Real-time Performance</h3>
-                    <p>Optimized for low-latency collaborative decision making</p>
-                </div>
-                <div class="feature-card">
-                    <h3>🔧 Modular Design</h3>
-                    <p>Extensible architecture supporting various collaboration scenarios</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="section" id="demo">
-            <h2>Demo</h2>
-            <div style="text-align: center; padding: 40px; background: #f8f9fa; border-radius: 8px;">
-                <p><em>🎬 Demo videos and interactive examples coming soon!</em></p>
-            </div>
-        </div>
-        
-        <div class="section">
-            <h2>Getting Started</h2>
-            <pre style="background: #2c3e50; color: #ecf0f1; padding: 20px; border-radius: 8px; overflow-x: auto;">
-<code># Clone the repository
-git clone https://github.com/Yushi-Du/COLA.git
-cd COLA
-
-# Install dependencies (coming soon)
-pip install -r requirements.txt
-
-# Run example
-python examples/collaborative_demo.py</code>
-            </pre>
-        </div>
-        
-        <div class="section" id="citation">
-            <h2>Citation</h2>
-            <pre style="background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto;">
-@misc{du2024cola,
-  title={COLA: Collaborative Learning Architecture},
-  author={Du, Yushi},
-  year={2024},
-  publisher={GitHub},
-  url={https://github.com/Yushi-Du/COLA}
-}
-            </pre>
-        </div>
-        
-        <div class="section">
-            <h2>Contact</h2>
-            <p>
-                📧 For questions and collaboration opportunities:<br>
-                <strong>Yushi Du</strong> - <a href="https://github.com/Yushi-Du">@Yushi-Du</a>
-            </p>
-        </div>
-        
-        <div style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #e9ecef; color: #7f8c8d;">
-            <p>⭐ Star the repository if you find this project interesting!</p>
-        </div>
+        <header>
+            <h1>COLA</h1>
+            <p class="subtitle">Collaborative Learning for Autonomous Agents</p>
+        </header>
+        <section class="timeline">
+            <h2>Release Timeline / Roadmap</h2>
+            <ul>
+                <li><strong>November 2025</strong>: Release code for the core method</li>
+                <li><strong>December 2025</strong>: Release whole sim2sim pipeline</li>
+            </ul>
+        </section>
+        <section class="status">
+            <h2>Current Status</h2>
+            <p>🚧 <strong>Work in Progress</strong> - We are currently preparing the code for public release following our paper submission. Stay tuned for updates!</p>
+        </section>
+        <section class="notify">
+            <h2>Get Notified</h2>
+            <p>⭐ Star this repository to get notified when code is released!</p>
+        </section>
+        <footer>
+            <p>&copy; 2025 COLA Project</p>
+        </footer>
     </div>
 </body>
 </html>
