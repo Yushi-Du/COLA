@@ -1,5 +1,4 @@
 # COLA
-# Project Title
 
 ## Release Timeline / Roadmap
 
