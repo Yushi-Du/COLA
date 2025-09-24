@@ -1,6 +1,6 @@
 # COLA
 
-[![arxiv](https://img.shields.io/badge/arXiv%202506.08931-red?logo=arxiv)](https://arxiv.org/)
+[![arxiv](https://img.shields.io/badge/arXiv?logo=arxiv)](https://arxiv.org/)
 [![website](https://img.shields.io/badge/Project-0065D3?logo=rocket&logoColor=white)](https://yushi-du.github.io/COLA/)
 
 ## Release Timeline / Roadmap
