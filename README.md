@@ -1,6 +1,6 @@
 # COLA
 
-[![website](https://img.shields.io/badge/Project-0065D3?logo=rocket&logoColor=white)](https://COLA.github.io/)
+[![website](https://img.shields.io/badge/Project-0065D3?logo=rocket&logoColor=white)](https://yushi-du.github.io/COLA/)
 
 ## Release Timeline / Roadmap
 
