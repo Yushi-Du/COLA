@@ -1,5 +1,7 @@
 # COLA
 
+[![website](https://img.shields.io/badge/Project-0065D3?logo=rocket&logoColor=white)](https://COLA.github.io/)
+
 ## Release Timeline / Roadmap
 
 ### 📅 Upcoming
