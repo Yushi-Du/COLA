@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Afford-Moiton</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <!-- <link rel="stylesheet" href="static/css/fontawesome.all.min.css"> -->
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <!-- <script defer src="static/js/fontawesome.all.min.js"></script> -->
+  <script src="https://kit.fontawesome.com/edbfd41333.js" crossorigin="anonymous"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+
+<body>
+
+<section class="section head-section">
+  <div class="container is-max-desktop">
+    <div class="is-centered">
+      <div class="has-text-centered">
+        <h2 class="title is-2">COLA:Learning Human-Humanoid Coordination for Collaborative
+          Object Carrying</h2>
+        <p class="has-text-danger publisher">In submission</p>
+
+        <div class="is-size-5">
+
+
+          <span class="author-block">
+            <a href="https://buzz-beater.github.io/" target="_blank">Baoxiong Jia</a><sup>2</sup>,</span>
+
+          <br>
+
+          <span class="author-block">
+            <a href="https://siyuanhuang.com/" target="_blank">Siyuan Huang</a><sup>2✉️</sup></span>
+        </div>
+
+        <div class="is-size-6">
+          <span class="author-block">
+            <sup>1</sup>School of Computer Science & Technology, Beijing Institute of Technology<br>
+            <sup>2</sup>National Key Laboratory of General Artificial Intelligence, BIGAI &nbsp;&nbsp; <sup>3</sup>Dept. of Automation, Tsinghua University<br>
+            <sup>4</sup>CFCS, School of Computer Science, Peking University &nbsp;&nbsp; <sup>5</sup>Institute for AI, Peking University<br>
+          </span>
+          <br>
+          <span class="eql-cntrb"><sup>*</sup>indicates equal contributions </span>
+          <span class="eql-cntrb"><sup>✉️</sup>indicates corresponding author</span>
+        </div>
+
+        <div class="link-block">
+          <span>
+            <a href="https://arxiv.org/" target="_blank"
+              class="external-link button is-normal is-rounded is-outlined is-info">
+              <span class="icon">
+                <i class="ai ai-arxiv"></i>
+              </span>
+              <span>arXiv</span>
+            </a>
+          </span>
+
+          <span>
+            <a href="https://github.com/Yushi-Du/COLA_Code" target="_blank"
+              class="external-link button is-normal is-rounded is-outlined is-dark">
+              <span class="icon">
+                <i class="fab fa-github"></i>
+              </span>
+              <span>Code</span>
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section content-section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-10">
+        <video  autoplay controls muted loop height="100%">
+          <source src="static/videos/highlights.mp4" type="video/mp4">
+        </video>
+        <h6 class="subtitle is-6">
+          COLA provides a proprioception-only policy that enables <strong>compliant human-humanoid collaboration</strong> for carrying diverse objects across various movement patterns.
+        </h6>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-12">
+        <h3 class="title is-3"> Highlights</h3>
+        <div class="has-text-justified">
+          <p>
+            We present <strong>COLA</strong>, a proprioception-only reinforcement learning approach that unifies leader and follower behaviors within a single policy. Trained in a <strong>closed-loop environment</strong> modeling dynamic interactions among humanoid, object, and human, COLA implicitly predicts object motion to <strong>enable compliant collaboration</strong> and maintain load balance. Experiments in both simulation and real-world scenarios demonstrate effective collaborative carrying across diverse objects and conditions, highlighting COLA’s practical value for human–robot object transportation.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-12">
+        <h3 class="title is-3"> Pipeline </h3>
+        <img src="./static/pdfs/pipeline.png" alt="image">
+        <div class="has-text-justified">
+          <p>
+            Our Policy mainly consists of three steps: (i) We train a base whole-body control policy to provide a robust
+            whole-body controller. (ii) In the closed-loop training environment, we train a residual teacher policy on top of the whole-body control
+            policy with privileged information for human-humanoid collaboration. (iii) We distill the knowledge from the teacher policy into a student
+            policy for real-world deployment using behavioral cloning.
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- <div class="columns is-centered">
+      <div class="column is-12">
+        <h3 class="title has-text-centered is-3"> BibTeX</h3>
+        <div class="bibtex-block">
+          <pre><code>@inproceedings{
+
+}</code></pre>
+        </div>
+      </div>
+    </div> -->
+
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8 has-text-centered">
+        <span>
+          This page was borrowed from the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.<br>
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<script>
+  new BeforeAfter({id: '#h3d-one'});
+  new BeforeAfter({id: '#h3d-two'});
+  new BeforeAfter({id: '#h3d-three'});
+  new BeforeAfter({id: '#h3d-four'});
+  new BeforeAfter({id: '#h3d-five'});
+  new BeforeAfter({id: '#h3d-six'});
+
+  new BeforeAfter({id: '#humanise-one'});
+  new BeforeAfter({id: '#humanise-two'});
+  new BeforeAfter({id: '#humanise-three'});
+  new BeforeAfter({id: '#humanise-four'});
+  new BeforeAfter({id: '#humanise-five'});
+  new BeforeAfter({id: '#humanise-six'});
+
+  new BeforeAfter({id: '#novel-one'});
+  new BeforeAfter({id: '#novel-two'});
+  new BeforeAfter({id: '#novel-three'});
+  new BeforeAfter({id: '#novel-four'});
+  new BeforeAfter({id: '#novel-five'});
+  new BeforeAfter({id: '#novel-six'});
+  new BeforeAfter({id: '#novel-seven'});
+</script>
+
+</html>
