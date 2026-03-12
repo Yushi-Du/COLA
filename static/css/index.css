@@ -16,7 +16,7 @@ html body {
 
 .conference-badge {
   display: inline-block;
-  margin: 0.9em 0;
+  margin: 0.9em 0 0.3em 0;
   color: #e85d04;
   font-family: 'Arial', sans-serif;
   font-size: 1.3em;
