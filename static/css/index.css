@@ -581,6 +581,8 @@ html body {
 }
 
 .link-block .button.demo-button {
+  min-width: 8.6rem;
+  padding-inline: 1.35rem;
   color: #ffffff;
   border-color: rgba(54, 137, 202, 0.62);
   background: linear-gradient(112deg, #2579b4 0%, #23a6b8 34%, #5c72d8 67%, #2579b4 100%);
