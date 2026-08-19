@@ -1,0 +1,42 @@
+<!doctype html>
+<meta charset="utf-8">
+<style>html,body,canvas{width:100%;height:100%;margin:0}</style>
+<script type="importmap">
+  {"imports":{"three":"../vendor/three/three.module.min.js"}}
+</script>
+<canvas id="canvas"></canvas>
+<script type="module">
+  import { ColaBrowserRuntime } from '../runtime.js';
+
+  const runtime = new ColaBrowserRuntime(document.querySelector('#canvas'));
+  try {
+    await runtime.initialize({ start: false });
+    const requestedSteps = Number(new URLSearchParams(location.search).get('steps') || 240);
+    const steps = Math.max(1, Math.min(10000, Math.round(requestedSteps)));
+    for (let step = 0; step < steps; step += 1) await runtime.runPhysicsStep();
+    runtime.renderer.render();
+    const state = runtime.getState();
+    document.body.dataset.result = 'pass';
+    document.body.dataset.time = state.time.toFixed(3);
+    document.body.dataset.baseHeight = state.base.height.toFixed(6);
+    document.body.dataset.actualHeight = state.actual.height.toFixed(6);
+    document.body.dataset.healthy = String(state.healthy);
+    document.body.dataset.action = JSON.stringify(Array.from(runtime.policy.previousAction));
+    runtime.setVelocity(4, -4);
+    runtime.setHeight(4);
+    runtime.setYawDegrees(225);
+    const bounded = runtime.getState().target;
+    document.body.dataset.commandContract = String(
+      bounded.vx === 0.5
+      && bounded.vy === -0.5
+      && bounded.height === 0.85
+      && Math.abs(bounded.yaw_deg + 135) < 1e-9
+    );
+    runtime.resetTargets();
+    console.log('COLA_BROWSER_SMOKE_PASS', JSON.stringify(state));
+  } catch (error) {
+    document.body.dataset.result = 'fail';
+    document.body.dataset.error = error.message;
+    console.error('COLA_BROWSER_SMOKE_FAIL', error);
+  }
+</script>

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#05090c">
+  <title>COLA MuJoCo Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+  <main class="viewport" id="viewport">
+    <img id="simulation-stream" src="/api/stream" alt="Live MuJoCo simulation">
+
+    <div class="loading-panel" id="loading-panel">
+      <span class="loader"></span>
+      <strong>Preparing MuJoCo</strong>
+      <small>Loading the model, controllers, and student policy</small>
+    </div>
+
+    <div class="status-bar">
+      <span class="status-pill" id="connection-pill"><i></i><span>Connecting</span></span>
+      <span id="simulation-time">0.00 s</span>
+    </div>
+
+    <div class="viewport-hint">drag to orbit · scroll to zoom</div>
+
+    <aside class="controller-visuals" aria-label="Controller visualizations" hidden>
+      <div class="panel-intro">
+        <strong>Controller Response</strong>
+      </div>
+
+      <section class="controller-monitor">
+        <div class="monitor-header">
+          <strong>lateral force</strong>
+          <span id="velocity-force-value">|Fy| 0.0 N</span>
+          <button class="overlay-switch velocity-overlay" data-overlay="velocity" type="button" aria-pressed="false"><span>arrow</span><i></i></button>
+        </div>
+        <div class="monitor-chart">
+          <canvas id="lateral-force-canvas" aria-label="Recent lateral-force magnitude"></canvas>
+        </div>
+      </section>
+
+      <section class="controller-monitor">
+        <div class="monitor-header">
+          <strong>height force</strong>
+          <span id="height-force-value">Fz +0.0 N</span>
+          <button class="overlay-switch height-overlay" data-overlay="height" type="button" aria-pressed="false"><span>arrow</span><i></i></button>
+        </div>
+        <div class="monitor-chart">
+          <canvas id="height-force-canvas" aria-label="Recent signed vertical force"></canvas>
+        </div>
+      </section>
+
+      <section class="controller-monitor">
+        <div class="monitor-header">
+          <strong>yaw torque</strong>
+          <span id="torque-value">τz +0.00 N·m</span>
+          <button class="overlay-switch torque-overlay" data-overlay="torque" type="button" aria-pressed="false"><span>arrow</span><i></i></button>
+        </div>
+        <div class="monitor-chart">
+          <canvas id="torque-history-canvas" aria-label="Recent signed world-Z torque"></canvas>
+        </div>
+      </section>
+    </aside>
+
+    <aside class="control-dock" aria-label="Simulation controls">
+      <div class="panel-intro">
+        <strong>Command Interface</strong>
+      </div>
+
+      <div class="dock-actions">
+        <button id="camera-follow" type="button" title="Toggle camera follow" aria-label="Toggle camera follow"><span class="action-icon camera-follow-icon">◎</span><span class="action-label camera-follow-label">camera follow</span></button>
+        <button id="pause-button" data-command="toggle-pause" type="button" title="Pause or resume" aria-label="Pause or resume"><span class="action-icon pause-icon">Ⅱ</span><span class="action-label pause-label">pause</span></button>
+        <button data-command="r" type="button" title="Reset simulation" aria-label="Reset simulation"><span class="action-icon">↻</span><span class="action-label">reset</span></button>
+      </div>
+
+      <section class="control-module velocity-control">
+        <div class="module-header">
+          <strong>linear velocity</strong>
+          <span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><i>·</i><kbd>X</kbd> reset</span>
+        </div>
+        <div
+          class="velocity-track"
+          id="velocity-track"
+          role="application"
+          tabindex="0"
+          aria-label="Drag in the coordinate plane to set robot-local planar velocity"
+          title="Drag to set velocity; double-click to set zero"
+        >
+          <span class="velocity-axis velocity-axis-horizontal" aria-hidden="true"></span>
+          <span class="velocity-axis velocity-axis-vertical" aria-hidden="true"></span>
+          <span class="velocity-direction velocity-forward" aria-hidden="true">forward</span>
+          <span class="velocity-direction velocity-back" aria-hidden="true">back</span>
+          <span class="velocity-direction velocity-left" aria-hidden="true">left</span>
+          <span class="velocity-direction velocity-right" aria-hidden="true">right</span>
+          <span class="velocity-origin" aria-hidden="true">0</span>
+          <span class="velocity-thumb" id="velocity-thumb" aria-hidden="true"></span>
+        </div>
+        <div class="velocity-values">
+          <span>forward <strong id="target-vx">+0.00</strong></span>
+          <span>left <strong id="target-vy">+0.00</strong></span>
+        </div>
+      </section>
+
+      <section class="control-module height-control">
+        <div class="module-header">
+          <strong>height</strong>
+          <span><kbd>K</kbd><kbd>I</kbd></span>
+        </div>
+        <label class="command-slider" for="height-slider">
+          <input id="height-slider" type="range" min="0.55" max="0.85" step="0.01" value="0.70">
+          <output id="target-height">0.70 m</output>
+        </label>
+      </section>
+
+      <section class="control-module pose-control">
+        <div class="module-header">
+          <strong>target-vector yaw</strong>
+          <span><kbd>L</kbd><kbd>J</kbd><i>·</i><kbd>C</kbd> reset</span>
+        </div>
+        <div class="pose-window" id="pose-window">
+          <canvas id="target-vector-canvas" aria-label="Current and target bar-vector yaw projection" tabindex="0"></canvas>
+          <div class="pose-legend" aria-hidden="true">
+            <span><i class="actual-swatch"></i>actual</span>
+            <span><i class="target-swatch"></i>target</span>
+          </div>
+        </div>
+        <div class="pose-value"><span>target</span><strong><span id="target-yaw">−90</span>°</strong></div>
+      </section>
+    </aside>
+
+    <div class="hidden-telemetry" aria-hidden="true">
+      <span id="base-height"></span><span id="actual-height"></span>
+      <span id="actual-speed"></span><span id="yaw-error"></span>
+      <span id="physics-rate"></span><span id="controller-rate"></span>
+      <span id="policy-rate"></span>
+    </div>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="demo.js"></script>
+</body>
+</html>

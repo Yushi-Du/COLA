@@ -6,14 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>COLA: Learning Human-Humanoid Coordination for Collaborative Object Carrying</title>
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="icon" type="image/png" href="static/images/favicon-cola.png?v=2">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro">
 
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="static/css/bulma-slider.min.css">
   <!-- <link rel="stylesheet" href="static/css/fontawesome.all.min.css"> -->
-  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="static/css/index.css?v=20260818">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -22,22 +22,33 @@
   <script src="https://kit.fontawesome.com/edbfd41333.js" crossorigin="anonymous"></script>
   <script src="static/js/bulma-carousel.min.js"></script>
   <script src="static/js/bulma-slider.min.js"></script>
-  <script src="static/js/index.js"></script>
+  <script src="static/js/index.js?v=20260818"></script>
 </head>
 
-<body>
+<body class="page-loading">
+
+<div class="homepage-loader" id="homepage-loader" role="status" aria-live="polite">
+  <div class="homepage-loader-content">
+    <img src="static/images/logo.png" alt="" aria-hidden="true">
+    <strong>Preparing COLA</strong>
+    <span id="homepage-loader-status">Loading contents 0 / 7</span>
+    <div class="homepage-loader-track" aria-hidden="true">
+      <i id="homepage-loader-progress"></i>
+    </div>
+    <button id="homepage-loader-retry" type="button" hidden>Retry</button>
+  </div>
+</div>
 
 <section class="section head-section">
   <div class="container is-max-desktop">
     <div class="is-centered">
       <div class="has-text-centered">
         <h2 class="title is-2 h2-with-img">
-          <img src="static/images/logo.png"
-               alt="Logo"
+          <span class="h2-text"><img src="demo/wasm/assets/cola-icon-transparent.png"
+               alt=""
+               aria-hidden="true"
                class="h2-logo"
-               width="48" height="48"
-               loading="lazy">
-          <span class="h2-text">COLA: Learning Human-Humanoid Coordination for Collaborative Object Carrying</span>
+               width="48" height="36">COLA: Learning Human-Humanoid Coordination for Collaborative Object Carrying</span>
         </h2>
 
         <div class="is-size-5">
@@ -96,10 +107,20 @@
               <span>Code</span>
             </a>
           </span>
+
+          <span>
+            <a href="demo/wasm/"
+              class="external-link button is-normal is-rounded is-outlined is-primary demo-button">
+              <span class="icon">
+                <i class="fas fa-play"></i>
+              </span>
+              <span>Demo</span>
+            </a>
+          </span>
         </div>
         
         <div>
-          <span class="conference-badge">ICRA 2026</span>
+          <span class="conference-badge">Accepted by ICRA 2026</span>
         </div>
         
       </div>
@@ -111,9 +132,9 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-10">
-        <video  autoplay controls muted loop height="100%">
+        <video autoplay controls muted loop playsinline preload="auto" height="100%">
           <!-- <source src="static/videos/No_Method_fixed_2.mp4" type="video/mp4"> -->
-          <source src="https://media.githubusercontent.com/media/Yushi-Du/COLA/main/static/videos/Video_Release_No_Method_2.mp4" type="video/mp4">
+          <source src="https://media.githubusercontent.com/media/Yushi-Du/COLA/main/static/videos/Video_Release_No_Method_2.mp4?v=20260818" type="video/mp4">
         </video>
         <h6 class="subtitle is-6">
           COLA provides a proprioception-only policy that enables <strong>compliant human-humanoid collaboration</strong> for carrying diverse objects across various movement patterns.
@@ -138,7 +159,7 @@
         <div class="columns is-multiline">
           <!-- Video 1 -->
           <div class="column is-6">
-            <video autoplay controls muted loop playsinline height="100%">
+            <video autoplay controls muted loop playsinline preload="auto" height="100%">
               <source src="static/videos/Short_clip_id1_masked.mp4" type="video/mp4">
             </video>
             <h6 class="subtitle is-6">
@@ -148,7 +169,7 @@
           
           <!-- Video 2 -->
           <div class="column is-6">
-            <video autoplay controls muted loop playsinline height="100%">
+            <video autoplay controls muted loop playsinline preload="auto" height="100%">
               <source src="static/videos/Short_clip_id2.mp4" type="video/mp4">
             </video>
             <h6 class="subtitle is-6">
@@ -158,7 +179,7 @@
           
           <!-- Video 3 -->
           <div class="column is-6">
-            <video autoplay controls muted loop playsinline height="100%">
+            <video autoplay controls muted loop playsinline preload="auto" height="100%">
               <source src="static/videos/Short_clip_id3.mp4" type="video/mp4">
             </video>
             <h6 class="subtitle is-6">
@@ -168,7 +189,7 @@
           
           <!-- Video 4 -->
           <div class="column is-6">
-            <video autoplay controls muted loop playsinline height="100%">
+            <video autoplay controls muted loop playsinline preload="auto" height="100%">
               <source src="static/videos/Short_clip_id4.mp4" type="video/mp4">
             </video>
             <h6 class="subtitle is-6">
@@ -178,7 +199,7 @@
 
           <!-- Video 5 -->
           <div class="column is-6">
-            <video autoplay controls muted loop playsinline height="100%">
+            <video autoplay controls muted loop playsinline preload="auto" height="100%">
               <source src="static/videos/Short_clip_id8.mp4" type="video/mp4">
             </video>
             <h6 class="subtitle is-6">
@@ -188,7 +209,7 @@
           
           <!-- Video 6 -->
           <div class="column is-6">
-            <video autoplay controls muted loop playsinline height="100%">
+            <video autoplay controls muted loop playsinline preload="auto" height="100%">
               <source src="static/videos/Short_clip_id9.mp4" type="video/mp4">
             </video>
             <h6 class="subtitle is-6">
@@ -202,7 +223,7 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-12">
         <h3 class="title is-3"> Pipeline </h3>
-        <img src="./static/pdfs/pipeline.png" alt="image">
+        <img class="pipeline-figure" src="static/images/pipeline-transparent.png" alt="COLA three-phase training pipeline">
         <div class="has-text-justified">
           <p>
             Our Policy mainly consists of three steps: (i) We train a base whole-body control policy to provide a robust

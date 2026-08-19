@@ -1,0 +1,21 @@
+{
+  "source": "models/policy_student_loop_static_three_jitter_phase3_model_5000.jit",
+  "source_sha256": "7a32546b2931734d229af47f960b336396d0d09e3ba3144eefe83b9afbae66ed",
+  "output": "wasm/assets/policy-loop-static-three-jitter-phase3-model-5000-2433dac7.onnx",
+  "onnx_sha256": "fdeb8320fd67ed15c46fdf0d3a5503c16c61c22e12f939fdd62f0a476aca9ae5",
+  "opset": 17,
+  "samples": 32,
+  "input_shape": [
+    32,
+    2775
+  ],
+  "output_shape": [
+    32,
+    29
+  ],
+  "maximum_absolute_error": 2.09808349609375e-05,
+  "mean_absolute_error": 2.8802876386180287e-06,
+  "onnx_bytes": 6358051,
+  "checkpoint": "model_5000.pt",
+  "checkpoint_sha256": "2433dac7f0975d91564f27718c5e844f767d652938d95778cb6c2d7e03fbcab8"
+}
